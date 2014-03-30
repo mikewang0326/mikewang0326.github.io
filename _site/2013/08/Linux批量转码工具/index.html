@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="MikeWang" />
-    <title>links | MikeWang</title>
+    <title>Linux批量转码工具 | MikeWang</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="MikeWang" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -14,7 +14,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>links</h1>
+        <h1>Linux批量转码工具</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -27,22 +27,44 @@
         </nav>
         <article class="content">
         <section class="post">
-<ul>
-<li><a href="http://projecteuler.net/">Project euler</a></li>
-<li><a href="http://domino.research.ibm.com/Comm/wwwr_ponder.nsf/pages/index.html">IBM monthly puzzles</a></li>
-<li><a href="http://www.verycd.com/i/4398009/">O'Reilly 电子书分享</a></li>
-<li><a href="http://open.163.com/">网易公开课</a></li>
-</ul>
-
+<p>占个坑 find . -name "*.h" -exec sh -c "enca -L zh_CN -x UTF-8 {}" \;</p>
 
 </section>
+<section class="meta">
+<span class="author">
+  <a href="http://ellochen.github.com/about">MikeWang</a>
+</span>
+<span class="time">
+  /
+  <time datetime="2013-08-07">2013-08-07</time>
+</span>
+<br />
+<span class="license">
+  Published under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(CC) BY-NC-SA</a>
+</span>
 
+<span class="categories">
+  in categories
+  
+  <a href="/categories/#tools" title="tools">tools</a>&nbsp;
+  
+</span>
+
+
+<span class="tags">
+  tagged with 
+  
+  <a href="/tags/#enca 文件批量转码" title="enca 文件批量转码">enca 文件批量转码</a>&nbsp;
+  
+</span>
+
+</section>
 <section class="comment">
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'ello'; // required: replace example with your forum shortname
-    var disqus_url = 'http://mikewang.github.com/links/';
+    var disqus_url = 'http://mikewang.github.com/2013/08/Linux%E6%89%B9%E9%87%8F%E8%BD%AC%E7%A0%81%E5%B7%A5%E5%85%B7/';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -54,7 +76,26 @@
 </section>
 
 
-
+<script type="text/javascript">
+$(function(){
+  $(document).keydown(function(e) {
+    var url = false;
+        if (e.which == 37 || e.which == 74) {  // Left arrow and J
+            
+        url = 'http://mikewang.github.com/2013/03/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3%E5%A6%82%E4%BD%95%E7%BB%99github%E4%B8%8A%E9%A1%B9%E7%9B%AE%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81/';
+        
+        }
+        else if (e.which == 39 || e.which == 75) {  // Right arrow and K
+            
+        url = 'http://mikewang.github.com/2013/08/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-and-%E7%AC%AC%E4%BA%8C%E7%AB%A0/';
+        
+        }
+        if (url) {
+            window.location = url;
+        }
+  });
+})
+</script>
 
 
         </article>

