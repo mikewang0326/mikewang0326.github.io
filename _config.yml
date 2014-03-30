@@ -1,5 +1,6 @@
 markdown: rdiscount
-safe: true
-lsi: false
+permalink: /:year/:month/:title/
+author: Ello
 pygments: true
-source: E:\workspaceAndroid\mikewang.github.io
+paginate: 16
+url: http://ellochen.github.com

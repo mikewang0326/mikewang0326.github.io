@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="{{ site.author }}" />
-    <title>{{ page.title }} | {{ site.author }}</title>
+    <meta name="author" content="Ello" />
+    <title> | Ello</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
+    <link href="/feed/" rel="alternate" title="Ello" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/highlight.css">
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
@@ -14,7 +14,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>{{ page.title }}</h1>
+        <h1></h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -26,12 +26,52 @@
         <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
         </nav>
         <article class="content">
-        {{ content }}
+        <section class="post">
+<?xml version="1.0" encoding="utf-8"?>
+  <rss version="2.0"
+        xmlns:content="http://purl.org/rss/1.0/modules/content/"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+  >
+  <channel>
+    <title>Ello</title>
+    <link href="http://localhost:4000/feed/" rel="self" />
+    <link href="http://ellochen.github.io" />
+    <lastBuildDate>2013-03-04T00:15:30+08:00</lastBuildDate>
+    <webMaster>silver.accc@gmail.com</webMaster>
+    
+    <item>
+      <title>Hello world!</title>
+      <link href="http://localhost:4000/2013/03/hello-world/"/>
+      <pubDate>2013-03-03T00:00:00+08:00</pubDate>
+      <author>Ello</author>
+      <guid>http://localhost:4000/2013/03/hello-world</guid>
+      <content:encoded><![CDATA[<h1>first</h1>
+
+<h2>second</h2>
+
+<ul>
+<li>test1</li>
+<li>test2</li>
+<li>test3
+
+<blockquote><p>test4</p></blockquote></li>
+</ul>
+
+]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>
+
+</section>
+
+
+
         </article>
       </div>
 
     <footer>
-        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - {{site.time | date:"%Y"}} by <a href="http://ellochen.github.com/about/">Ello</a> | <span class="label label-info">{{site.time | date:"%Y-%m-%d %H:%M:%S %Z +0800"}}</span></small></p>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - 2013 by <a href="http://ellochen.github.com/about/">Ello</a> | <span class="label label-info">2013-03-04 00:15:30 CST</span></small></p>
     </footer>
 
     </div>
