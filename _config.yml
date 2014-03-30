@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
-author: Ello
+author: MikeWang
 pygments: true
 paginate: 16
-url: http://ellochen.github.com
+url: http://mikewang.github.com
