@@ -1,1 +1,122 @@
-<p>this is a test for</p>
+<h1>Git+github+markdown+jekyll</h1>
+
+<hr />
+
+<p>  按：</p>
+
+<p>   本文是以对git，github熟悉为前提的。</p>
+
+<h3>一，  Install Jekyll in windows</h3>
+
+<p>   　　　<a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html" title="install jekyll in windows">http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html</a></p>
+
+<p>　　　<strong>Note</strong>：</p>
+
+<p>　　　1，   安装完成Ruby之后，需要设置Ruby的环境变量，之后的命令都基于此。</p>
+
+<p>　　　2，   在执行 <strong>gem install jekyll</strong> 命令的时候，会耗时很长，没有关系，继续执行第二步。</p>
+
+<h3>二，   Github pages</h3>
+
+<p>　　　<a href="http://pages.github.com/" title="github pages">http://pages.github.com/</a></p>
+
+<p>　　　目的：创建网站的repository，静态的相关文件都会存放在这里</p>
+
+<h3>三，   Template</h3>
+
+<p>　　　借用了模板：<a href="http://ellochen.github.io/">http://ellochen.github.io/</a></p>
+
+<p>　　　拷贝到对应的文件夹即可。</p>
+
+<h3>四，   Jekyll和github page 关联</h3>
+
+<p>　　　<a href="https://help.github.com/articles/using-jekyll-with-pages#keeping-jekyll-up-to-date">https://help.github.com/articles/using-jekyll-with-pages#keeping-jekyll-up-to-date</a></p>
+
+<p>　　　执行<strong>gem install github-pages</strong>命令，安装相应的关联包。</p>
+
+<p>　　　附加的，可以安装jekyll与github相关的插件：</p>
+
+<p>　　　<a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages">https://help.github.com/articles/using-jekyll-plugins-with-github-pages</a></p>
+
+<h3>五，   Build</h3>
+
+<p> 　　　在对应的文件夹下，执行<strong>jekyll build</strong>命令。</p>
+
+<h3>六，   Publish</h3>
+
+<p>　　　<strong>Note</strong>：</p>
+
+<p>　　　　　　commit 之后，不会立即生效。初次publish的时候，会有如下的提示：
+　<img src="https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/first_publish_delay_page.jpg" alt="first publish delay page" /></p>
+
+<h3>七，遇到的问题</h3>
+
+<p>　　　<strong><em>1.error: invalid byte sequence in GBK</em></strong></p>
+
+<p>　　　<a href="http://jekyllrb.com/docs/windows/#installation">http://jekyllrb.com/docs/windows/#installation</a></p>
+
+<p>　　　解决方法：</p>
+
+<p>　　　　　　　　执行命令: <strong>chcp 65001</strong></p>
+
+<p>　　　<strong><em>2.Missing dependency: rdiscount</em></strong></p>
+
+<p>　　　　其实是我拷贝的模板，安装的一个插件。</p>
+
+<p>　　　　查看网上资料发现，原因是Jekyll默认的markdown解析器<strong>maruku</strong>对中文支持不够完善，所以果断换成<strong>RDiscount</strong>解析器，问题得到解决。</p>
+
+<p>　　　　执行命令<strong>gem install rdiscount</strong></p>
+
+<p>　　　<strong><em>3.Could not find a valid gem 'rdiscount' (>= 0)</em></strong></p>
+
+<p>　　　　<a href="https://github.com/davidfstr/rdiscount">https://github.com/davidfstr/rdiscount</a></p>
+
+<p><img src="https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/error_can_not_find_a_valid_gem_rdiscount.jpg" alt="first publish delay page" /></p>
+
+<p>　　　<strong><em>4.因为被墙掉的缘故，只能本地安装。</em></strong></p>
+
+<p>　　　　下载地址：<a href="http://rubygems.org/gems/rdiscount/versions/2.1.7">http://rubygems.org/gems/rdiscount/versions/2.1.7</a></p>
+
+<p>　　　　cd到对应文件夹下，执行命令：<strong>gem install rdiscount-2.1.7.gem --local</strong></p>
+
+<p>　　　<strong><em>5.之后继续检查缺少的gem库，执行命令jekyll serve –watch</em></strong></p>
+
+<p>　　　　错误信息如下：
+<img src="https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/command_jekyll_serve_watch.jpg" alt="first publish delay page" /></p>
+
+<p>　　　　同样的方法，在本地安装。</p>
+
+<p>　　　<strong><em>6.invalid byte sequence in GBK。</em></strong></p>
+
+<p>　　　　编码的问题，解决方案，根据对应的版本选择即可：</p>
+
+<p>　　　　<a href="http://kaiimeng.cn/my-first-octopress-blog/">http://kaiimeng.cn/my-first-octopress-blog/</a></p>
+
+<p>　　　<strong><em>7.增加dispus</em></strong></p>
+
+<p>　　　　拷贝模板后，评论功能失效，注册dispus账户，更新name即可</p>
+
+<p>　　　<strong><em>8.没有反馈邮件的问题</em></strong></p>
+
+<p>　　　　犯了一个特别2b的问题，就是google page的名字必须和github的账号名字一致。</p>
+
+<h3>八，   如何调试</h3>
+
+<p>　　　其实就是如何输出log，帮助查找问题</p>
+
+<p>　　　<strong><em>1.cd到目录下</em></strong></p>
+
+<p>　　　<strong><em>2.执行jekyll serve，即可在http://localhost:4000看到相应的页面效果。如果有问题，也会报错。</em></strong></p>
+
+<h3>九，   中文乱码的问题</h3>
+
+<p>　　　<a href="http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html">http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html
+</a></p>
+
+<h3>十，   其他</h3>
+
+<p>　　　<strong><em>1.问题8耗费了很长的时间，建议阅读文档的时候一定细致。</em></strong></p>
+
+<p>　　　<strong><em>2.和模板的作者邮件沟通了下，虽然没帮助解决问题，但是心里上安慰踏实很多。</em></strong></p>
+
+<p>　　　<strong><em>3.最终发了封邮件给github的service，反应了下问题，不知道是不是因为是付费用户的缘故，反馈很快，很快解决了问题。</em></strong></p>
