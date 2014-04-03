@@ -6,11 +6,6 @@ tags: [增强现实 ,AR, 机器视觉, 算法]
 
 ---
 
-# Git+github+markdown+jekyll #
-
-----------
-
-
   按：
     
    本文是以对git，github熟悉为前提的。
