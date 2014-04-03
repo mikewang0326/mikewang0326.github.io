@@ -51,6 +51,7 @@
 　　　**Note**：
 
 　　　　　　commit 之后，不会立即生效。初次publish的时候，会有如下的提示：
+
 　![first publish delay page](https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/first_publish_delay_page.jpg)
 
 ###七，遇到的问题
@@ -77,6 +78,7 @@
 
 　　　　[https://github.com/davidfstr/rdiscount](https://github.com/davidfstr/rdiscount)
 
+
 ![first publish delay page](https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/error_can_not_find_a_valid_gem_rdiscount.jpg)
  
 　　　***4.因为被墙掉的缘故，只能本地安装。***
@@ -91,6 +93,7 @@
 　　　***5.之后继续检查缺少的gem库，执行命令jekyll serve –watch***
 
 　　　　错误信息如下：
+
 ![first publish delay page](https://raw.githubusercontent.com/mikewang0326/raw.mikewang0326.github.io/master/post/2014-3-31-git+github+markdown+jekyll/command_jekyll_serve_watch.jpg)
  
 　　　　同样的方法，在本地安装。
