@@ -1,3 +1,11 @@
+---
+
+layout: post
+categories: [Computer Vision]
+tags: [增强现实 ,AR, 机器视觉, 算法]
+
+---
+
 # Git+github+markdown+jekyll #
 
 ----------
