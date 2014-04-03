@@ -8,7 +8,7 @@ comments: yes
 
   My name is Mike,I am a programmer.
 
-- 邮箱:  [hi.from.mikewang@gmail.com  ](hi.from.mikewang@gmail.com) 
+- 邮箱:  [hi.from.mikewang@gmail.com ](http://gmail.com) 
 - 豆瓣: [http://www.douban.com/people/60676503/](http://www.douban.com/people/60676503/)  
 - github : [https://github.com/mikewang0326](https://github.com/mikewang0326)  
 
