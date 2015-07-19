@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
 author: MikeWang
-pygments: true
+highlighter: pygments
 paginate: 16
 url: http://mikewang0326.github.com
