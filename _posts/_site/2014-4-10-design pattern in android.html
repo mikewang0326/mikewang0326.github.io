@@ -18,7 +18,7 @@
 
 <p>View中的方法 onDraw() dispatchDraw()</p>
 
-<pre><code>public class View{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class View{
 
 protected void onDraw(Canvas canvas) {
 }
@@ -42,7 +42,7 @@ public void draw(Canvas canvas) {
     }
 }
 //... ... }
-</code></pre>
+</code></pre></div></div>
 
 <p>五，备忘录模式</p>
 
@@ -64,13 +64,13 @@ public void draw(Canvas canvas) {
 
 <p>Asynctask中的ThreadFactory</p>
 
-<pre><code> private static final ThreadFactory sThreadFactory = new ThreadFactory() { 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> private static final ThreadFactory sThreadFactory = new ThreadFactory() { 
  private final AtomicInteger mCount = new AtomicInteger(1);
  public Thread newThread(Runnable r) { 
         return new Thread(r, "AsyncTask #" + mCount.getAndIncrement());  
    }
 };                    九，适配器模式
-</code></pre>
+</code></pre></div></div>
 
 <p>adapter</p>
 

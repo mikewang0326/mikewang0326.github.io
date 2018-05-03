@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="MikeWang" />
-    <title>[miketalk]当我跑步的时候我在想什么 | MikeWang</title>
+    <title>Design pattern in android | MikeWang</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="MikeWang" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
@@ -14,7 +14,7 @@
     <div id="container">
       <div id="main" role="main">
         <header>
-        <h1>[miketalk]当我跑步的时候我在想什么</h1>
+        <h1>Design pattern in android</h1>
         </header>
         <nav>
         <span><a title="home page" class="" href="/">Home</a></span>
@@ -31,9 +31,94 @@
 
 <p>http://www.cnblogs.com/qianxudetianxia/tag/Android%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%B3%BB%E5%88%97/</p>
 
-<p>一，为什么跑步</p>
+<p>一，组合模式</p>
 
-<p>二，跑步后带给我什么</p>
+<p>View + ViewPager</p>
+
+<p>二，观察者模式</p>
+
+<p>AbstractCursor</p>
+
+<p>三，单例模式</p>
+
+<p>输入法（InputMethodManager） 状态栏等</p>
+
+<p>四，模板方法模式</p>
+
+<p>View中的方法 onDraw() dispatchDraw()</p>
+
+<pre><code>public class View{
+
+protected void onDraw(Canvas canvas) {
+}
+
+protected void dispatchDraw(Canvas canvas) {
+}
+
+//算法骨架
+public void draw(Canvas canvas) {
+   if (!verticalEdges &amp;&amp; !horizontalEdges) {
+        // 步骤1
+        if (!dirtyOpaque) onDraw(canvas);
+
+        // 步骤2
+        dispatchDraw(canvas);
+
+        // 步骤3
+        onDrawScrollBars(canvas);
+
+        return;
+    }
+}
+//... ...
+</code></pre>
+
+<p>}</p>
+
+<p>五，备忘录模式</p>
+
+<p>Canvas save（） restore()方法</p>
+
+<p>六，共享元模式</p>
+
+<p>sqlite 请求sql，对于重复的sql的返回结果，会缓存。</p>
+
+<p>客户端通过享元工厂获取享元对象，享元对象的创建则根据工厂的享元池来控制，如果有享元池中没有这个对象，则创建这个对象并保存到享元池中，如果享元池中有这个对象，则直接使用这个对象。因为享元对象在共享的同时，说明它重用属性的不变性，不然都是变化的东西，不存在共享，这些不变得属性我们称之为内部状态，独立与外部场景。</p>
+
+<p>七，命令模式</p>
+
+<p>封装了接受者和操作</p>
+
+<p>new Thread(new Runnable(){}).start()</p>
+
+<p>八，工厂模式</p>
+
+<p>Asynctask中的ThreadFactory</p>
+
+<pre><code> private static final ThreadFactory sThreadFactory = new ThreadFactory() { 
+ private final AtomicInteger mCount = new AtomicInteger(1);
+ public Thread newThread(Runnable r) { 
+        return new Thread(r, "AsyncTask #" + mCount.getAndIncrement());  
+   }
+}; 
+</code></pre>
+
+<p>   
+           <br/>
+九，适配器模式</p>
+
+<p>adapter</p>
+
+<p>十，原型模式</p>
+
+<p>Cloneable接口</p>
+
+<p>十一，策略模式</p>
+
+<p>暂时理解为多态的内涵</p>
+
+<p>十二，建造者模式
+builder</p>
 
 </section>
 <section class="meta">
@@ -42,7 +127,7 @@
 </span>
 <span class="time">
   /
-  <time datetime="2015-07-19">2015-07-19</time>
+  <time datetime="2014-04-10">2014-04-10</time>
 </span>
 <br />
 <span class="license">
@@ -52,7 +137,7 @@
 <span class="categories">
   in categories
   
-  <a href="/categories/#computer vision" title="computer vision">computer vision</a>&nbsp;
+  <a href="/categories/#Computer Vision" title="Computer Vision">Computer Vision</a>&nbsp;
   
 </span>
 
@@ -60,7 +145,13 @@
 <span class="tags">
   tagged with 
   
-  <a href="/tags/#个人" title="个人">个人</a>&nbsp;
+  <a href="/tags/#增强现实" title="增强现实">增强现实</a>&nbsp;
+  
+  <a href="/tags/#AR" title="AR">AR</a>&nbsp;
+  
+  <a href="/tags/#机器视觉" title="机器视觉">机器视觉</a>&nbsp;
+  
+  <a href="/tags/#算法" title="算法">算法</a>&nbsp;
   
 </span>
 
@@ -70,7 +161,7 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'mikewang0326'; // required: replace example with your forum shortname
-    var disqus_url = 'http://mikewang0326.github.com/2015/07/%5BMikeTalk%5D%E5%BD%93%E6%88%91%E8%B7%91%E6%AD%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%88%91%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88/';
+    var disqus_url = 'http://localhost:4000/2014/04/design-pattern-in-android/';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -88,12 +179,12 @@ $(function(){
     var url = false;
         if (e.which == 37 || e.which == 74) {  // Left arrow and J
             
-        url = 'http://mikewang0326.github.com/2014/04/design%20pattern%20in%20android/';
+        url = 'http://localhost:4000/2014/03/git+github+markdown+jekyll/';
         
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
-        url = 'http://mikewang0326.github.com/2015/07/%5BMikeTalk-Book%5D%E4%BB%8E0%E5%88%B01/';
+        url = 'http://localhost:4000/2015/07/MikeTalk-%E5%BD%93%E6%88%91%E8%B7%91%E6%AD%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%88%91%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88/';
         
         }
         if (url) {
@@ -108,7 +199,7 @@ $(function(){
       </div>
 
     <footer>
-        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - 2015 by <a href="http://mikewang.github.com/about/">Mike</a> | <span class="label label-info">2015-07-28 23:41:37 CST +0800</span></small></p>
+        <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - 2018 by <a href="http://mikewang.github.com/about/">Mike</a> | <span class="label label-info">2018-05-03 15:40:43 NZST +0800</span></small></p>
     </footer>
 
     </div>
