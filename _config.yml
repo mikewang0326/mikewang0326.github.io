@@ -1,7 +1,7 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
 author: MikeWang
-highlighter: pygments
+highlighter: rouge
 paginate: 16
 url: http://mikewang0326.github.com
 plugins: [jekyll-paginate, rdiscount]
